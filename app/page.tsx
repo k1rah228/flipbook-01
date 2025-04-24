@@ -40,14 +40,16 @@ export default function Home() {
 
       {pages.length > 0 && (
         <div style={{ marginTop: 40 }}>
-          <HTMLFlipBook width={300} height={400}>
-            {pages.map((p, i) => (
-              <div key={i} style={{ padding: 10 }}>
-                <img src={p.imageUrl} style={{ width: "100%" }} />
-                <p>{p.text}</p>
-              </div>
-            ))}
-          </HTMLFlipBook>
+{/* ① tell TypeScript to ignore the next line */}
+{/* @ts-ignore */}
+<HTMLFlipBook width={300} height={400}>
+  {pages.map((p, i) => (
+    <div key={i} style={{ padding: 10 }}>
+      <img src={p.imageUrl} style={{ width: "100%" }} />
+      <p>{p.text}</p>
+    </div>
+  ))}
+</HTMLFlipBook>
         </div>
       )}
     </main>
