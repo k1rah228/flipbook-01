@@ -15,15 +15,17 @@ export async function POST(request: Request) {
   });
   const generatedText = chat.choices[0].message.content;
 
-  // image
+    // image
   const img = await openai.images.generate({
     prompt,
     n: 1,
-    size: "512x512",
+    size: "512x512"
   });
+
+  const imageUrl = img.data?.[0]?.url ?? "";
 
   return NextResponse.json({
     text: generatedText,
-    imageUrl: img.data[0].url,
+    imageUrl
   });
 }
